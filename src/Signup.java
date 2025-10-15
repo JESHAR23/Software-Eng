@@ -13,7 +13,7 @@ public class Signup implements  ActionListener {
     JPanel pnleast = new JPanel();
     JPanel pnlwest = new JPanel();
 
-    JLabel lblName = new JLabel("Full Name: ");
+    JLabel lblName = new JLabel("Full Name : ");
     JLabel lblPass = new JLabel("Password : ");
     JLabel lbldob = new JLabel("Date of Birth : ");
     JLabel lblNumber = new JLabel("Contact Number : ");
@@ -41,7 +41,7 @@ public class Signup implements  ActionListener {
         Signuppage.setVisible(true);
         Signuppage.setSize(750,450);
         Signuppage.setResizable(false);
-        Signuppage.setTitle("MentCare Login");
+        Signuppage.setTitle("MentCare Signup");
         Signuppage.setIconImage(smallicon.getImage());
         Signuppage.setLayout(new BorderLayout(0,0));
         Signuppage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -81,6 +81,9 @@ public class Signup implements  ActionListener {
 
         btnGoBack.setPreferredSize(new Dimension(150,30));
         btnSignup.setPreferredSize(new Dimension(150,30));
+
+        btnSignup.addActionListener(this);
+        btnGoBack.addActionListener(this);
 
         pnlnorth.add(companyimage);
 
