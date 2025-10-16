@@ -10,156 +10,183 @@ public class PatientDash implements ActionListener {
     JPanel pnlLeft = new JPanel();
     JPanel pnlRight = new JPanel();
 
-    JPanel pnlChatbot = new JPanel();
-    JPanel pnlChatSouth = new JPanel();
-    JPanel pnlChatNorth = new JPanel();
-    JPanel pnlChatCentre = new JPanel();
-    JPanel pnlLeftSouth = new JPanel();
-    JPanel pnlLeftNorth = new JPanel();
-
+    //right side
     JPanel pnlRightSouth = new JPanel();
     JPanel pnlRightNorth = new JPanel();
-    JPanel pnlRightCenter = new JPanel();
-    JPanel pnlRightCentreNorth = new JPanel();
-    JPanel pnlRightCentreSouth = new JPanel();
-    JPanel pnlRightCentreCentre = new JPanel();
-    JPanel pnlRightCentreNorthRight = new JPanel();
-    JPanel pnlRightCentreNorthLeft = new JPanel();
+    JPanel pnlRightCentre = new JPanel();
 
-    JLabel imglog = new JLabel();
-    JLabel imguserPic = new JLabel();
+    //Right side Centre
+    JPanel pnlRCNorth = new JPanel();
+    JPanel pnlRCCentre = new JPanel();
+    JPanel pnlRCSouth = new JPanel();
 
-    ImageIcon userPic = new ImageIcon();
-    ImageIcon logoicon = new ImageIcon("logoinverted.png");
-    ImageIcon smallicon = new ImageIcon("logo.png");
+    //RCNorth
+    JPanel pnlRCNLeft = new JPanel();
+    JPanel pnlRCNRight = new JPanel();
 
-    JButton btnSignout = new JButton("Sign Out");
+    //Left side
+    JPanel pnlLeftNorth = new JPanel();
+    JPanel pnlLeftSouth = new JPanel();
+    JPanel pnlLeftCentre = new JPanel();
+
+    //LeftCentre
+    JPanel pnlLCNorth = new JPanel();
+    JPanel pnlLCSouth = new JPanel();
+    JPanel pnlLCCentre = new JPanel();
+    JPanel pnlLCWest = new JPanel();
+    JPanel pnlLCEast = new JPanel();
+
+    //LeftCCentre
+    JPanel pnlLCCCentre = new JPanel();
+
+    JButton btnSignOut = new JButton("Sign Out");
     JButton btnAdd = new JButton("Add");
     JButton btnCancel = new JButton("Cancel");
     JButton btnEdit = new JButton("Edit");
     JButton btnSend = new JButton("-->");
+
+    ImageIcon imglogo = new ImageIcon("logoinverted.png");
+    ImageIcon imguser = new ImageIcon();
+    ImageIcon smallicon = new ImageIcon("logo.png");
 
     JLabel lblName = new JLabel("Full Name : ");
     JLabel lblID = new JLabel("ID : ");
     JLabel lbldob = new JLabel("Date of Birth : ");
     JLabel lblNumber = new JLabel("Contact Number : ");
     JLabel lblemail = new JLabel("Email : ");
-    JLabel lblMedicalAid = new JLabel("Medical Aid : ");
-    JLabel lblAppoint = new JLabel("Appointments : ");
-    JLabel lblTitle = new JLabel("Patient Records");
-    JLabel lblChatTitle = new JLabel("MentCare Chat Bot");
+    JLabel lblmedicalAid = new JLabel("Medical Aid : ");
+    JLabel lblApointments = new JLabel("Appointments : ");
+    JLabel lblTitle = new JLabel("Patient Dashboard : ");
+    JLabel lblChatTitle = new JLabel("MentCare Chat Bot : ");
+    JLabel lblChatOut = new JLabel("Example output from AI");
     JLabel lbllogoicon = new JLabel();
     JLabel lbluserpic = new JLabel();
-
-    JTextField txtUserInput = new JTextField();
 
     JTextField txtName = new JTextField();
     JTextField txtID = new JTextField();
     JTextField txtdob = new JTextField();
     JTextField txtNumber = new JTextField();
     JTextField txtemail = new JTextField();
-    JTextField txtMedicalAid = new JTextField();
+    JTextField txtPatNote = new JTextField();
+    JTextField txtmedicalAid = new JTextField();
+    JTextField txtuserin = new JTextField();
 
     JTable dbtAppoint = new JTable();
 
     PatientDash() {
         Patientpage.setVisible(true);
-        Patientpage.setSize(1550,650);
+        Patientpage.setSize(1000,550);
         Patientpage.setResizable(false);
-        Patientpage.setTitle("MentCare Signup");
+        Patientpage.setTitle("MentCare Patient Record");
         Patientpage.setIconImage(smallicon.getImage());
-        Patientpage.setLayout(new GridLayout(1,2));
+        Patientpage.setLayout(new BorderLayout());
         Patientpage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         pnlLeft.setLayout(new BorderLayout());
+        pnlLeftCentre.setLayout(new BorderLayout());
+        pnlLCNorth.setLayout(new FlowLayout(FlowLayout.CENTER));
+        pnlLCSouth.setLayout(new FlowLayout(FlowLayout.CENTER));
+
+        pnlLCCentre.setLayout(new BorderLayout());
+        pnlLCCCentre.setLayout(new FlowLayout(FlowLayout.CENTER));
+
+        pnlLCWest.setPreferredSize(new Dimension(50,0));
+        pnlLCEast.setPreferredSize(new Dimension(50,0));
+
+        pnlLeft.setPreferredSize(new Dimension(300,1));
+        pnlLeftNorth.setPreferredSize(new Dimension(1,100));
+        pnlLeftSouth.setPreferredSize(new Dimension(1,55));
+
         pnlRight.setLayout(new BorderLayout());
-        pnlChatbot.setLayout(new BorderLayout());
-        pnlRightNorth.setLayout(new FlowLayout(FlowLayout.LEFT));
-        pnlRightSouth.setLayout(new FlowLayout(FlowLayout.CENTER,100,20));
-        pnlRightCenter.setLayout(new BorderLayout());
-        pnlRightCentreNorth.setLayout(new GridLayout(1,2));
-        pnlRightCentreNorthRight.setLayout(new GridLayout(6,2));
+        pnlRight.setPreferredSize(new Dimension(700,1));
+        pnlRightSouth.setLayout(new FlowLayout(FlowLayout.CENTER));
+        pnlRightNorth.setLayout(new FlowLayout(FlowLayout.CENTER));
+        pnlRightCentre.setLayout(new BorderLayout());
 
+        pnlRightNorth.setPreferredSize(new Dimension(1,55));
+        pnlRightSouth.setPreferredSize(new Dimension(1,55));
 
-        pnlChatSouth.setLayout(new FlowLayout(FlowLayout.CENTER));
+        pnlRCNorth.setLayout(new FlowLayout(FlowLayout.LEFT,50,0));
+        pnlRCSouth.setLayout(new FlowLayout(FlowLayout.CENTER));
+        pnlRCCentre.setLayout(new FlowLayout(FlowLayout.CENTER,40,0));
+        pnlRCNRight.setLayout(new GridLayout(6,2));
+        pnlRCNLeft.setPreferredSize(new Dimension(100,200));
 
-        pnlLeftNorth.setPreferredSize(new Dimension(120,250));
-        pnlLeftSouth.setPreferredSize(new Dimension(120,200));
+        //pnlRCNorth.setPreferredSize(new Dimension(1,100));
+        pnlRCSouth.setPreferredSize(new Dimension(1,50));
 
-
-        btnAdd.setPreferredSize(new Dimension(150,30));
-        btnEdit.setPreferredSize(new Dimension(150,30));
-        btnSignout.setPreferredSize(new Dimension(150,30));
-        btnSend.setPreferredSize(new Dimension(50,30));
-        btnCancel.setPreferredSize(new Dimension(150,30));
-
-        btnAdd.addActionListener(this);
         btnEdit.addActionListener(this);
-        btnSignout.addActionListener(this);
-        btnSend.addActionListener(this);
+        btnSignOut.addActionListener(this);
+        btnAdd.addActionListener(this);
         btnCancel.addActionListener(this);
 
-        txtUserInput.setColumns(50);
-        pnlChatNorth.add(lblChatTitle);
-        pnlChatSouth.add(txtUserInput);
-        pnlChatSouth.add(btnSend);
+        lbluserpic.setIcon(imguser);
 
-        pnlChatbot.add(pnlChatNorth,BorderLayout.NORTH);
-        pnlChatbot.add(pnlChatSouth,BorderLayout.SOUTH);
-        pnlChatbot.add(pnlChatCentre,BorderLayout.CENTER);
+        pnlRCNLeft.add(lbluserpic);
 
-        lbllogoicon.setIcon(logoicon);
-        lbluserpic.setIcon(userPic);
-        pnlLeftNorth.add(lbllogoicon);
-        pnlLeftNorth.setPreferredSize(new Dimension(23, 100));
-        pnlLeftSouth.setPreferredSize(new Dimension(23,150));
-        pnlRightCentreNorthLeft.add(lbluserpic);
+        pnlRCNRight.add(lblName);
+        pnlRCNRight.add(txtName);
+        pnlRCNRight.add(lblID);
+        pnlRCNRight.add(txtID);
+        pnlRCNRight.add(lbldob);
+        pnlRCNRight.add(txtdob);
+        pnlRCNRight.add(lblmedicalAid);
+        pnlRCNRight.add(txtmedicalAid);
+        pnlRCNRight.add(lblNumber);
+        pnlRCNRight.add(txtNumber);
+        pnlRCNRight.add(lblemail);
+        pnlRCNRight.add(txtemail);
 
-        pnlRightCentreNorthRight.add(lblName);
-        pnlRightCentreNorthRight.add(txtName);
-        pnlRightCentreNorthRight.add(lblID);
-        pnlRightCentreNorthRight.add(txtID);
-        pnlRightCentreNorthRight.add(lbldob);
-        pnlRightCentreNorthRight.add(txtdob);
-        pnlRightCentreNorthRight.add(lblMedicalAid);
-        pnlRightCentreNorthRight.add(txtMedicalAid);
-        pnlRightCentreNorthRight.add(lblNumber);
-        pnlRightCentreNorthRight.add(txtNumber);
-        pnlRightCentreNorthRight.add(lblemail);
-        pnlRightCentreNorthRight.add(txtemail);
-
-        //pnlRightCentreNorthLeft.add((Component) imguserPic.getIcon());
-
-        pnlRightCentreNorth.add(pnlRightCentreNorthLeft);
-        pnlRightCentreNorth.add(pnlRightCentreNorthRight);
-        pnlRightCentreCentre.add(lblAppoint);
-
-
-        pnlRightSouth.add(btnAdd);
-        pnlRightSouth.add(btnCancel);
-        pnlRightSouth.add(btnEdit);
+        txtPatNote.setColumns(50);
+        pnlRCSouth.add(txtPatNote);
+        pnlRCCentre.add(lblApointments);
 
         pnlRightNorth.add(lblTitle);
+        pnlRightSouth.add(btnAdd);
+        pnlRightSouth.add(btnCancel);
 
-        dbtAppoint.setVisible(true);
-        dbtAppoint.setShowGrid(true);
+        lbllogoicon.setIcon(imglogo);
 
-        pnlRightCentreSouth.add(dbtAppoint);
+        pnlLeftSouth.add(btnSignOut);
+        pnlLeftNorth.add(lbllogoicon);
 
-        pnlRightCenter.add(pnlRightCentreNorth,BorderLayout.NORTH);
-        pnlRightCenter.add(pnlRightCentreSouth,BorderLayout.SOUTH);
-        pnlRightCenter.add(pnlRightCentreCentre,BorderLayout.CENTER);
+        //Right Centre North
+        pnlRCNorth.add(pnlRCNLeft,BorderLayout.WEST);
+        pnlRCNorth.add(pnlRCNRight,BorderLayout.EAST);
 
+        //Right Centre
+        pnlRightCentre.add(pnlRCNorth,BorderLayout.NORTH);
+        pnlRightCentre.add(pnlRCSouth,BorderLayout.SOUTH);
+        pnlRightCentre.add(pnlRCCentre,BorderLayout.CENTER);
+
+        //Right
         pnlRight.add(pnlRightNorth,BorderLayout.NORTH);
         pnlRight.add(pnlRightSouth,BorderLayout.SOUTH);
-        pnlRight.add(pnlRightCenter,BorderLayout.CENTER);
+        pnlRight.add(pnlRightCentre,BorderLayout.CENTER);
 
-        pnlLeft.add(btnSignout,BorderLayout.SOUTH);
+        txtuserin.setColumns(10);
+
+        pnlLCSouth.add(txtuserin);
+        pnlLCSouth.add(btnSend);
+        pnlLCCCentre.add(lblChatOut,BorderLayout.CENTER);
+        pnlLCCentre.add(pnlLCCCentre);
+        pnlLCNorth.add(lblChatTitle);
+
+        //Left Centre
+        pnlLeftCentre.add(pnlLCNorth,BorderLayout.NORTH);
+        pnlLeftCentre.add(pnlLCSouth,BorderLayout.SOUTH);
+        pnlLCCentre.add(pnlLCWest,BorderLayout.WEST);
+        pnlLCCentre.add(pnlLCEast,BorderLayout.EAST);
+        pnlLeftCentre.add(pnlLCCentre,BorderLayout.CENTER);
+
+        //Left
         pnlLeft.add(pnlLeftNorth,BorderLayout.NORTH);
-        pnlLeft.add(pnlChatbot,BorderLayout.CENTER);
+        pnlLeft.add(pnlLeftSouth,BorderLayout.SOUTH);
+        pnlLeft.add(pnlLeftCentre,BorderLayout.CENTER);
 
-        Patientpage.add(pnlLeft);
-        Patientpage.add(pnlRight);
+        Patientpage.add(pnlLeft,BorderLayout.WEST);
+        Patientpage.add(pnlRight,BorderLayout.EAST);
+
     }
 
     @Override

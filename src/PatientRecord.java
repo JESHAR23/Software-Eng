@@ -44,7 +44,7 @@ public class PatientRecord implements ActionListener {
     JLabel lblNumber = new JLabel("Contact Number : ");
     JLabel lblemail = new JLabel("Email : ");
     JLabel lblmedicalAid = new JLabel("Medical Aid : ");
-    JLabel lblPatientNote = new JLabel("Patient Notes : ");
+    JLabel lblPatientnote = new JLabel("Patient Notes : ");
     JLabel lblTitle = new JLabel("Patient Record : ");
     JLabel lbllogoicon = new JLabel();
     JLabel lbluserpic = new JLabel();
@@ -91,6 +91,11 @@ public class PatientRecord implements ActionListener {
         //pnlRCNorth.setPreferredSize(new Dimension(1,100));
         pnlRCSouth.setPreferredSize(new Dimension(1,50));
 
+        btnDash.addActionListener(this);
+        btnGoBack.addActionListener(this);
+        btnEdit.addActionListener(this);
+        btnSave.addActionListener(this);
+
         lbluserpic.setIcon(imguser);
 
         pnlRCNLeft.add(lbluserpic);
@@ -110,11 +115,12 @@ public class PatientRecord implements ActionListener {
 
         txtPatNote.setColumns(50);
         pnlRCSouth.add(txtPatNote);
-        pnlRCCentre.add(lblPatientNote);
+        pnlRCCentre.add(lblPatientnote);
 
         pnlRightNorth.add(lblTitle);
         pnlRightSouth.add(btnEdit);
         pnlRightSouth.add(btnSave);
+        pnlRightSouth.add(btnDash);
 
         lbllogoicon.setIcon(imglogo);
 
