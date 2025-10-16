@@ -7,6 +7,7 @@ public class Main {
 
         //new Login();
         //new Signup();
-        new PatientDash();
+        //new PatientDash();
+        new AddStaff();
     }
 }
