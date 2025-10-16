@@ -67,7 +67,6 @@ public class PatientDash implements ActionListener {
     JTextField txtdob = new JTextField();
     JTextField txtNumber = new JTextField();
     JTextField txtemail = new JTextField();
-    JTextField txtPatNote = new JTextField();
     JTextField txtmedicalAid = new JTextField();
     JTextField txtuserin = new JTextField();
 
@@ -137,8 +136,7 @@ public class PatientDash implements ActionListener {
         pnlRCNRight.add(lblemail);
         pnlRCNRight.add(txtemail);
 
-        txtPatNote.setColumns(50);
-        pnlRCSouth.add(txtPatNote);
+        pnlRCSouth.add(dbtAppoint);
         pnlRCCentre.add(lblApointments);
 
         pnlRightNorth.add(lblTitle);
